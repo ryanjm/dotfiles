@@ -28,8 +28,13 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set hlsearch
 endif
 
-" Switch wrap off for everything
-set nowrap
+" Switch wrap on for everything
+" http://vim.wikia.com/wiki/Word_wrap_without_line_breaks
+set wrap
+set linebreak
+set nolist " list disables linebreak
+set textwidth=0
+set wrapmargin=0
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
