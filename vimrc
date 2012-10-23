@@ -36,6 +36,9 @@ set nolist " list disables linebreak
 set textwidth=0
 set wrapmargin=0
 
+" for syntasic / pathogen
+call pathogen#infect()
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
   " Enable file type detection.
