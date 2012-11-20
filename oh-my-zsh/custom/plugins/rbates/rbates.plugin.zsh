@@ -12,9 +12,12 @@ export EDITOR='mate -w'
 unsetopt correct_all
 
 # a few aliases I like
-alias gs='git status'
+alias gs='git status -sb'
 alias gd='git diff'
 alias tlog='tail -f log/development.log'
+alias git-amend='git commit --amend -C HEAD'
+alias git-undo='git reset --soft HEAD^'
+alias git-count='git shortlog -sn'
 
 # add plugin's bin directory to path
 export PATH="$(dirname $0)/bin:$PATH"

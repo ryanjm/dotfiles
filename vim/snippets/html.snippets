@@ -440,6 +440,8 @@ snippet hgroup.
 	</hgroup>
 snippet hr
 	<hr />${1}
+snippet hr.
+	<hr class="${1}" />${2}
 snippet html
 	<html>
 	${1}
@@ -721,6 +723,8 @@ snippet source
 	<source src="${1}" type="${2}" media="${3}" />
 snippet span
 	<span>${1}</span>
+snippet span.
+	<span class="${1}">${2}</span>${3}
 snippet strong
 	<strong>${1}</strong>
 snippet style
@@ -817,3 +821,6 @@ snippet video
 	<video src="${1} height="${2}" width="${3}" preload="${5:none}" autoplay="${6:autoplay}>${7}</video>${8}
 snippet wbr
 	<wbr />${1}
+snippet jquery
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	

@@ -105,13 +105,13 @@ map <Leader>R :e doc/README_FOR_APP<CR>
 map <Leader>m :Rmodel 
 map <Leader>c :Rcontroller 
 map <Leader>v :Rview 
-map <Leader>u :Runittest 
-map <Leader>f :Rfunctionaltest 
-map <Leader>tm :RTmodel 
-map <Leader>tc :RTcontroller 
-map <Leader>tv :RTview 
-map <Leader>tu :RTunittest 
-map <Leader>tf :RTfunctionaltest 
+" map <Leader>u :Runittest 
+" map <Leader>f :Rfunctionaltest 
+" map <Leader>tm :RTmodel 
+" map <Leader>tc :RTcontroller 
+" map <Leader>tv :RTview 
+" map <Leader>tu :RTunittest 
+" map <Leader>tf :RTfunctionaltest 
 map <Leader>sm :RSmodel 
 map <Leader>sc :RScontroller 
 map <Leader>sv :RSview 
@@ -151,9 +151,10 @@ nmap <F1> <Esc>
 imap <C-F> <C-R>=expand("%")<CR>
 
 " Maps autocomplete to tab
-imap <Tab> <C-N>
+" imap <Tab> <C-N>
 
 imap <C-L> <Space>=><Space>
+imap <D-CR> <C-O>o
 
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·

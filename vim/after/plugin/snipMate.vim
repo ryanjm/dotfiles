@@ -33,6 +33,8 @@ call GetSnippets(snippets_dir, '_') " Get global snippets
 
 " Add html to erb
 call ExtractSnipsFile(g:snippets_dir.'html.snippets','eruby')
+" Add html to markdown
+call ExtractSnipsFile(g:snippets_dir.'html.snippets','markdown')
 
 au FileType * if &ft != 'help' | call GetSnippets(snippets_dir, &ft) | endif
 " vim:noet:sw=4:ts=4:ft=vim
