@@ -102,9 +102,9 @@ let mapleader = ","
 map <Leader>R :e doc/README_FOR_APP<CR>
 
 " Leader shortcuts for Rails commands
-map <Leader>m :Rmodel 
-map <Leader>c :Rcontroller 
-map <Leader>v :Rview 
+map <Leader>m :Rmodel<CR> 
+map <Leader>c :Rcontroller<CR> 
+map <Leader>v :Rview<CR>
 " map <Leader>u :Runittest 
 " map <Leader>f :Rfunctionaltest 
 " map <Leader>tm :RTmodel 
@@ -112,11 +112,12 @@ map <Leader>v :Rview
 " map <Leader>tv :RTview 
 " map <Leader>tu :RTunittest 
 " map <Leader>tf :RTfunctionaltest 
-map <Leader>sm :RSmodel 
-map <Leader>sc :RScontroller 
-map <Leader>sv :RSview 
-map <Leader>su :RSunittest 
-map <Leader>sf :RSfunctionaltest 
+map <Leader>sm :RSmodel<CR> 
+map <Leader>sc :RScontroller<CR>
+map <Leader>sv :RSview<CR>
+map <Leader>su :RSunittest<CR> 
+map <Leader>sf :RSfunctionaltest<CR>
+
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
