@@ -118,6 +118,9 @@ map <Leader>sv :RSview<CR>
 map <Leader>su :RSunittest<CR> 
 map <Leader>sf :RSfunctionaltest<CR>
 
+" NERDTree
+map <Leader>n :NERDTreeToggle<CR>
+map <Leader>nf :NERDTreeFind<CR>
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
