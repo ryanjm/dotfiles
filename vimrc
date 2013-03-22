@@ -79,12 +79,18 @@ else
 
 endif " has("autocmd")
 
-" if has("folding")
-  " set foldenable
-  " set foldmethod=syntax
-  " set foldlevel=1
-  " set foldnestmax=2
-  " set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
+if has("folding")
+  set foldenable
+  set foldmethod=manual
+  set foldlevel=10
+  set foldnestmax=10
+  set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
+endif
+
+" if has("gui_running")
+"   if has("gui_macvim")
+"     set guifont=Monaco:h12
+"   endif
 " endif
 
 " Softtabs, 2 spaces
@@ -102,20 +108,20 @@ let mapleader = ","
 map <Leader>R :e doc/README_FOR_APP<CR>
 
 " Leader shortcuts for Rails commands
-map <Leader>m :Rmodel<CR> 
-map <Leader>c :Rcontroller<CR> 
+map <Leader>m :Rmodel<CR>
+map <Leader>c :Rcontroller<CR>
 map <Leader>v :Rview<CR>
-" map <Leader>u :Runittest 
-" map <Leader>f :Rfunctionaltest 
-" map <Leader>tm :RTmodel 
-" map <Leader>tc :RTcontroller 
-" map <Leader>tv :RTview 
-" map <Leader>tu :RTunittest 
-" map <Leader>tf :RTfunctionaltest 
-map <Leader>sm :RSmodel<CR> 
+" map <Leader>u :Runittest
+" map <Leader>f :Rfunctionaltest
+" map <Leader>tm :RTmodel
+" map <Leader>tc :RTcontroller
+" map <Leader>tv :RTview
+" map <Leader>tu :RTunittest
+" map <Leader>tf :RTfunctionaltest
+map <Leader>sm :RSmodel<CR>
 map <Leader>sc :RScontroller<CR>
 map <Leader>sv :RSview<CR>
-map <Leader>su :RSunittest<CR> 
+map <Leader>su :RSunittest<CR>
 map <Leader>sf :RSfunctionaltest<CR>
 
 " NERDTree
@@ -160,10 +166,32 @@ imap <C-F> <C-R>=expand("%")<CR>
 imap <C-L> <Space>=><Space>
 imap <D-CR> <C-O>o
 
-" Display extra whitespace
-" set list listchars=tab:»·,trail:·
+" Handling trailing whitespaces
+" https://github.com/KurtPreston/dotfiles/blob/master/vimrc
+highlight ExtraWhitespace ctermbg=blue guibg=#3749A4
+autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
+autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
 
-" Edit routes
+" http://sartak.org/2011/03/end-of-line-whitespace-in-vim.html
+function! <SID>StripTrailingWhitespace()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nmap <silent> <Leader><space> :call <SID>StripTrailingWhitespace()<CR>
+
+
+" Highlight trailing whitespace
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
+
+" Edit routes kj
 command! Rroutes :e config/routes.rb
 command! Rschema :e db/schema.rb
 
@@ -206,7 +234,7 @@ set tags=./tags;
 let g:fuf_splitPathMatching=1
 
 " Open URL
-command -bar -nargs=1 OpenURL :!open <args>
+command! -bar -nargs=1 OpenURL :!open <args>
 function! OpenURL()
   let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
   echo s:uri
