@@ -168,9 +168,14 @@ imap <D-CR> <C-O>o
 
 " Handling trailing whitespaces
 " https://github.com/KurtPreston/dotfiles/blob/master/vimrc
-highlight ExtraWhitespace ctermbg=blue guibg=#3749A4
-autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
-autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
+highlight EOLWS ctermbg=blue guibg=#3749A4
+autocmd ColorScheme * highlight EOLWS ctermbg=red guibg=red
+" autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\\s\\+\\%#\\@!$/
+" autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\\s\\+$/
+
+" Highlight trailing whitespace
+" autocmd InsertEnter * match ExtraWhitespace /\\s\\+\\%#\\@<!$/
+" autocmd BufRead,InsertLeave * match ExtraWhitespace /\\s\\+$/
 
 " http://sartak.org/2011/03/end-of-line-whitespace-in-vim.html
 function! <SID>StripTrailingWhitespace()
@@ -187,9 +192,6 @@ endfunction
 nmap <silent> <Leader><space> :call <SID>StripTrailingWhitespace()<CR>
 
 
-" Highlight trailing whitespace
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Edit routes kj
 command! Rroutes :e config/routes.rb
