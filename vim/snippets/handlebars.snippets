@@ -1,0 +1,17 @@
+# .handlebars
+
+# Includes html.snippets
+
+# Handlebars *****************************
+snippet {
+	{{${1}}}
+snippet if
+	{{#if ${1}}}
+	  ${2}
+	{{/if}}
+snippet ifelse
+	{{#if ${1}}}
+	  ${2}
+	{{else}}
+		${3}
+	{{/if}}
