@@ -104,6 +104,10 @@ set laststatus=2
 " \ is the leader character
 let mapleader = ","
 
+" Up and down single display lines
+map <Down> gj
+map <Up> gk
+
 " Edit the README_FOR_APP (makes :R commands work)
 map <Leader>R :e doc/README_FOR_APP<CR>
 
@@ -248,3 +252,14 @@ function! OpenURL()
 endfunction
 map <Leader>w :call OpenURL()<CR>
 
+" Relative numbers for absolute
+" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <Leader>a :call NumberToggle()<cr>
