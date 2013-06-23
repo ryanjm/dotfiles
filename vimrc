@@ -229,6 +229,9 @@ set completeopt=longest,menu
 set wildmode=list:longest,list:full
 set complete=.,t
 
+" Setting files to ignore
+set wildignore=tmp/*
+
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
@@ -238,6 +241,9 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 set tags=./tags;
 
 let g:fuf_splitPathMatching=1
+
+" Disable folder for markdown
+let g:vim_markdown_folding_disabled=1
 
 " Open URL
 command! -bar -nargs=1 OpenURL :!open <args>

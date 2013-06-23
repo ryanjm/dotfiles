@@ -70,3 +70,10 @@ chsh -s /bin/bash # change back to Bash if you want
 ```
 
 Then open a new terminal window to see the effects.
+
+
+# Installing vim pathogen plugins
+
+```
+$ git submodule add git://.... vim/bundle/[name of plugin]
+```
