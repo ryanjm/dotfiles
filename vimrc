@@ -108,6 +108,7 @@ set laststatus=2
 " \ is the leader character
 let mapleader = ","
 
+
 " Up and down single display lines
 map <Down> gj
 map <Up> gk
@@ -273,3 +274,7 @@ function! NumberToggle()
 endfunc
 
 nnoremap <Leader>a :call NumberToggle()<cr>
+
+
+" Turn on/off spell check
+map <C-S> :setlocal spell! spelllang=en_us<cr>
