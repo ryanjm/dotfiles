@@ -85,9 +85,10 @@ endif " has("autocmd")
 
 if has("folding")
   set foldenable
-  set foldmethod=manual
+  set foldmethod=syntax
   set foldlevel=10
   set foldnestmax=10
+  set foldcolumn=2
   set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
 endif
 
@@ -274,6 +275,14 @@ function! NumberToggle()
 endfunc
 
 nnoremap <Leader>a :call NumberToggle()<cr>
+
+
+" http://stackoverflow.com/questions/164847/what-is-in-your-vimrc
+" Space will toggle folds!
+nnoremap <space> za
+
+" This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
+inoremap jj <Esc>
 
 
 " Turn on/off spell check
