@@ -57,6 +57,11 @@ if has("autocmd")
   " Enable soft-wrapping for text files
   autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
 
+  " https://github.com/jelera/vim-javascript-syntax
+  " Enable folding for JS 
+  " TODO: make this work
+  autocmd FileType javascript call JavaScriptFold()
+
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
@@ -287,3 +292,5 @@ inoremap jj <Esc>
 
 " Turn on/off spell check
 map <C-S> :setlocal spell! spelllang=en_us<cr>
+
+

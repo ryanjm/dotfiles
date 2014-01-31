@@ -7,3 +7,5 @@ alias clsa='clear; lsa'
 function pullify() {
   git config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'
 }
+
+# set -o vi
