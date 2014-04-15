@@ -273,13 +273,14 @@ map <Leader>w :call OpenURL()<CR>
 " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
 function! NumberToggle()
   if(&relativenumber == 1)
+    set relativenumber!
     set number
   else
     set relativenumber
   endif
 endfunc
 
-nnoremap <Leader>a :call NumberToggle()<cr>
+nnoremap <C-n> :call NumberToggle()<cr>
 
 
 " http://stackoverflow.com/questions/164847/what-is-in-your-vimrc

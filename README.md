@@ -13,6 +13,8 @@ Run the following commands in your terminal. It will prompt you before it does a
 git clone git://github.com/ryanb/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 rake install
+cd ~
+ln -s ~/code/dotfiles/zshrc .zshrc
 ```
 
 After installing, open a new terminal window to see the effects.
