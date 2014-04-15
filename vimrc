@@ -58,7 +58,7 @@ if has("autocmd")
   autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
 
   " https://github.com/jelera/vim-javascript-syntax
-  " Enable folding for JS 
+  " Enable folding for JS
   " TODO: make this work
   autocmd FileType javascript call JavaScriptFold()
 
@@ -184,18 +184,13 @@ imap <C-F> <C-R>=expand("%")<CR>
 imap <C-L> <Space>=><Space>
 imap <D-CR> <C-O>o
 
-" Handling trailing whitespaces
-" https://github.com/KurtPreston/dotfiles/blob/master/vimrc
-highlight EOLWS ctermbg=blue guibg=#3749A4
-autocmd ColorScheme * highlight EOLWS ctermbg=red guibg=red
-" autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\\s\\+\\%#\\@!$/
-" autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\\s\\+$/
-
 " Highlight trailing whitespace
-" autocmd InsertEnter * match ExtraWhitespace /\\s\\+\\%#\\@<!$/
-" autocmd BufRead,InsertLeave * match ExtraWhitespace /\\s\\+$/
-
 " http://sartak.org/2011/03/end-of-line-whitespace-in-vim.html
+set list
+set listchars=trail:.
+autocmd InsertEnter * set listchars=
+autocmd InsertLeave * set listchars=trail:.
+
 function! <SID>StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -224,11 +219,6 @@ endif
 if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor\ --ignore-dir=tmp\ --ignore-dir=coverage
 endif
-
-" Color scheme
-" colorscheme vividchalk
-" highlight NonText guibg=#060606
-" highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Numbers
 set number
