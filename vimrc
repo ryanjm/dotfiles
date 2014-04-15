@@ -139,6 +139,9 @@ map <Leader>sv :RSview<CR>
 map <Leader>su :RSunittest<CR>
 map <Leader>sf :RSfunctionaltest<CR>
 
+" Buffer Explorer
+map <Leader>b :BufExplorer
+
 " NERDTree
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>nf :NERDTreeFind<CR>
