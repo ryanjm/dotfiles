@@ -9,10 +9,10 @@ set backspace=indent,eol,start
 
 set nobackup
 set nowritebackup
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=50 " keep 50 lines of command line history
+set ruler " show the cursor position all the time
+set showcmd " display incomplete commands
+set incsearch " do incremental searching
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -59,7 +59,6 @@ if has("autocmd")
 
   " https://github.com/jelera/vim-javascript-syntax
   " Enable folding for JS
-  " TODO: make this work
   autocmd FileType javascript call JavaScriptFold()
 
   " Put these in an autocmd group, so that we can delete them easily.
@@ -84,7 +83,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent " always set autoindenting on
 
 endif " has("autocmd")
 
@@ -254,10 +253,10 @@ command! -bar -nargs=1 OpenURL :!open <args>
 function! OpenURL()
   let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
   echo s:uri
-  if s:uri != ""
-	  exec "!open \"" . s:uri . "\""
+    if s:uri != ""
+    exec "!open \"" . s:uri . "\""
   else
-	  echo "No URI found in line."
+    echo "No URI found in line."
   endif
 endfunction
 map <Leader>w :call OpenURL()<CR>
