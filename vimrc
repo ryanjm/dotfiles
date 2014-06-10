@@ -59,7 +59,7 @@ if has("autocmd")
 
   " https://github.com/jelera/vim-javascript-syntax
   " Enable folding for JS
-  autocmd FileType javascript call JavaScriptFold()
+  " autocmd FileType javascript call JavaScriptFold()
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -145,6 +145,9 @@ map <Leader>b :BufExplorer
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>nf :NERDTreeFind<CR>
 
+" Mustache - https://github.com/mustache/vim-mustache-handlebars
+let g:mustache_abbreviations = 1
+
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
 
@@ -159,6 +162,14 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+
+" CtrlP's ignore
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|hg|\.svn|dist|node_modules|vendor|tmp)$',
+  \ 'file': '\v\.(exe|so|dll|tmp)$',
+  \ }
 
 " Duplicate a selection
 " Visual mode: D
@@ -286,4 +297,8 @@ inoremap jj <Esc>
 " Turn on/off spell check
 map <C-S> :setlocal spell! spelllang=en_us<cr>
 
-
+" Save swp files to /tmp
+" http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory
+" http://winterdom.com/2009/02/vimswapfiles
+set directory=/tmp//
+set backupdir=/tmp//
