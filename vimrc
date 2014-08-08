@@ -147,6 +147,7 @@ map <Leader>nf :NERDTreeFind<CR>
 
 " Mustache - https://github.com/mustache/vim-mustache-handlebars
 let g:mustache_abbreviations = 1
+au! BufRead,BufNewFile,SessionLoadPost *.hbs         setfiletype mustache.html
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
