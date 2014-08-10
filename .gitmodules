@@ -19,3 +19,9 @@
 [submodule "vim/bundle/rails"]
 	path = vim/bundle/rails
 	url = https://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/vim-javascript-syntax"]
+	path = vim/bundle/vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
