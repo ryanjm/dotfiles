@@ -303,3 +303,12 @@ map <C-S> :setlocal spell! spelllang=en_us<cr>
 " http://winterdom.com/2009/02/vimswapfiles
 set directory=/tmp//
 set backupdir=/tmp//
+
+" Swapping lines
+" http://vim.wikia.com/wiki/Moving_lines_up_or_down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
