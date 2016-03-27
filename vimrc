@@ -139,7 +139,7 @@ map <Leader>su :RSunittest<CR>
 map <Leader>sf :RSfunctionaltest<CR>
 
 " Buffer Explorer
-map <Leader>b :BufExplorer
+map <C-b> :BufExplorer<CR>
 
 " NERDTree
 map <Leader>n :NERDTreeToggle<CR>
@@ -148,6 +148,10 @@ map <Leader>nf :NERDTreeFind<CR>
 " Mustache - https://github.com/mustache/vim-mustache-handlebars
 let g:mustache_abbreviations = 1
 au! BufRead,BufNewFile,SessionLoadPost *.hbs         setfiletype mustache.html
+
+" Improve markdown
+" https://github.com/tpope/vim-markdown
+let g:markdown_fenced_languages = ['html', 'js', 'css', 'objective-c', 'bash=sh', 'swift']
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
