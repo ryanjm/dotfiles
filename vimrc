@@ -176,6 +176,8 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|tmp)$',
   \ }
 
+let g:ctrlp_show_hidden = 1
+
 " Duplicate a selection
 " Visual mode: D
 vmap D y'>p
