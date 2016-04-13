@@ -116,7 +116,7 @@ snippet charset
 	charset="${1:utf-8}"${2}
 snippet data
 	data-${1}="${2:$1}"${3}
-snippet for
+snippet for HTML for attribute
 	for="${1}"${2}
 snippet height
 	height="${1}"${2}
@@ -542,7 +542,7 @@ snippet li.
 snippet li+
 	<li>${1}</li>
 	li+${2}
-snippet lia
+snippet lia HTML Anchor in li
 	<li><a href="${2:#}">${1}</a></li>
 snippet lia+
 	<li><a href="${2:#}">${1}</a></li>
@@ -675,9 +675,9 @@ snippet progress
 	<progress>${1}</progress>
 snippet q
 	<q>${1}</q>
-snippet rp
+snippet rp HTML rp tag
 	<rp>${1}</rp>
-snippet rt
+snippet rt HTML rt tag
 	<rt>${1}</rt>
 snippet ruby
 	<ruby>
