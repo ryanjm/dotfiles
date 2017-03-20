@@ -14,6 +14,10 @@ set ruler " show the cursor position all the time
 set showcmd " display incomplete commands
 set incsearch " do incremental searching
 
+
+" Use system keyboard instead
+set clipboard=unnamed
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -39,6 +43,10 @@ set linebreak
 set nolist " list disables linebreak
 set textwidth=0
 set wrapmargin=0
+
+" Wrap text for markdown files
+" https://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " for syntasic / pathogen
 call pathogen#infect()
@@ -94,6 +102,13 @@ if has("folding")
   set foldnestmax=10
   set foldcolumn=2
   set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
+endif
+
+" https://github.com/nelstrom/vim-markdown-folding
+" Folding for markdown
+set nocompatible
+if has("autocmd")
+  filetype plugin indent on
 endif
 
 " if has("gui_running")
@@ -300,7 +315,6 @@ nnoremap <space> za
 " This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
 inoremap jj <Esc>
 
-
 " Turn on/off spell check
 map <C-S> :setlocal spell! spelllang=en_us<cr>
 
@@ -318,3 +332,7 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+
+" Mouse support in terminal
+" set mouse=a
