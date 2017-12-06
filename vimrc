@@ -46,7 +46,7 @@ set wrapmargin=0
 
 " Wrap text for markdown files
 " https://robots.thoughtbot.com/wrap-existing-text-at-80-characters-in-vim
-au BufRead,BufNewFile *.md setlocal textwidth=80
+" au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " for syntasic / pathogen
 call pathogen#infect()
@@ -106,10 +106,10 @@ endif
 
 " https://github.com/nelstrom/vim-markdown-folding
 " Folding for markdown
-set nocompatible
-if has("autocmd")
-  filetype plugin indent on
-endif
+" set nocompatible
+" if has("autocmd")
+"   filetype plugin indent on
+" endif
 
 " if has("gui_running")
 "   if has("gui_macvim")
@@ -179,12 +179,18 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Normal mode: <Leader>t
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
+" Adds tags around line
+nmap tp <Plug>Yssurround<p>
+nmap td <Plug>Yssurround<div>
+nmap tD <Plug>YSsurround<div>
+
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " CtrlP's ignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|hg|\.svn|dist|node_modules|vendor|tmp)$',
