@@ -29,6 +29,7 @@ map Q gq
 :cnoremap <C-a> <Home>
 :cnoremap <C-d> <Delete>
 
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -342,3 +343,18 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Mouse support in terminal
 " set mouse=a
+
+" Local/Global Replace
+" https://stackoverflow.com/questions/597687/changing-variable-names-in-vim
+nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
+" https://gist.github.com/AndrewRayCode/048616a2e3f5d1b5a9ad
+function! Refactor()
+    call inputsave()
+    let @z=input("What do you want to rename '" . @z . "' to? ")
+    call inputrestore()
+endfunction
+
+" Locally (local to block) rename a variable
+nmap <Leader>r "zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[{V%:s/<C-R>//<c-r>z/g<cr>`x
