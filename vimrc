@@ -50,7 +50,7 @@ set wrapmargin=0
 " au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " for syntasic / pathogen
-call pathogen#infect()
+" call pathogen#infect()
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
