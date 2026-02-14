@@ -25,6 +25,8 @@ alias echopath="tr ':' '\n' <<< \"$PATH\""
 # For Django
 alias pm="python manage.py"
 
+# For Claude
+alias cc='claude --dangerously-skip-permissions'
 
 
 

@@ -22,3 +22,23 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='vim'
 fi
+
+eval "$(zoxide init zsh --cmd cd)"
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/ryanjm/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# Added by Antigravity
+export PATH="/Users/ryanjm/.antigravity/antigravity/bin:$PATH"
+
+
+# PAI Configuration (added by Kai Bundle installer)
+export DA="Kai"
+export TIME_ZONE="America/Los_Angeles"
+export PAI_SOURCE_APP="$DA"
+
+
+export PATH="$HOME/.local/bin:$PATH"
