@@ -6,7 +6,7 @@ DISABLE_LS_COLORS="true"
 
 plugins=(git bundler brew gem ryanjm)
 
-export PATH="/usr/local/bin:/usr/local/opt/python/libexec/bin:/Users/ryanjm/code/scripts:$PATH"
+export PATH="/usr/local/bin:/usr/local/opt/python/libexec/bin:$HOME/code/scripts:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
@@ -25,14 +25,14 @@ fi
 
 eval "$(zoxide init zsh --cmd cd)"
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/ryanjm/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 # Added by Antigravity
-export PATH="/Users/ryanjm/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
 
 # PAI Configuration (added by Kai Bundle installer)
