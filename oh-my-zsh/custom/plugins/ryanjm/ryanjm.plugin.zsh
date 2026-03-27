@@ -30,5 +30,8 @@ alias cc='claude --dangerously-skip-permissions'
 
 
 
+# System-specific aliases
+[[ -f ~/.zshrc_aliases ]] && source ~/.zshrc_aliases
+
 # add plugin's bin directory to path
 export PATH="$(dirname $0)/bin:$PATH"
